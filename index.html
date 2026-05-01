@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Indicações Premium</title>
+<title>Bala de Coco Recheada - Pedidos</title>
 
 <style>
 * {
@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg,#6a11cb,#2575fc);
+  background: linear-gradient(135deg,#ff6a00,#ee0979);
   padding: 15px;
   -webkit-text-size-adjust: 100%;
 }
@@ -29,11 +29,10 @@ body {
 
 .card {
   background: #fff;
-  border-radius: 15px;
+  border-radius: 16px;
   padding: 25px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   display: none;
-  animation: fade 0.4s ease;
 }
 
 .card.active {
@@ -42,21 +41,13 @@ body {
 
 h2 {
   margin-top: 0;
+  color: #ee0979;
 }
 
-.progress {
-  height: 6px;
-  background: #eee;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  overflow: hidden;
-}
-
-.bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg,#00c6ff,#0072ff);
-  transition: 0.3s;
+p {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 15px;
 }
 
 input {
@@ -70,7 +61,7 @@ input {
 
 button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   border: none;
   border-radius: 8px;
   font-weight: bold;
@@ -78,7 +69,7 @@ button {
 }
 
 .next {
-  background: #0072ff;
+  background: #ee0979;
   color: white;
 }
 
@@ -95,11 +86,6 @@ button {
 input, button {
   touch-action: manipulation;
 }
-
-@keyframes fade {
-  from {opacity: 0; transform: translateY(10px);}
-  to {opacity: 1; transform: translateY(0);}
-}
 </style>
 </head>
 
@@ -107,81 +93,41 @@ input, button {
 
 <div class="container">
 
-<form id="form"
-action="https://formsubmit.co/luisgustavo.olliver@gmail.com"
-method="POST">
+<form action="https://formsubmit.co/luisgustavo.olliver@gmail.com" method="POST">
 
 <input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_subject" value="🔥 Novas Indicações Recebidas">
+<input type="hidden" name="_subject" value="🍬 Novo pedido - Bala de Coco Recheada">
 
 <!-- STEP 1 -->
 <div class="card active">
-  <div class="progress"><div class="bar"></div></div>
+  <h2>🍬 Bala de Coco Recheada</h2>
+  <p>Deixe seu pedido abaixo e entraremos em contato para confirmar sua encomenda.</p>
 
-  <h2>Seu Nome</h2>
-  <input type="text" name="cliente" placeholder="Nome" required>
+  <input type="text" name="nome" placeholder="Seu nome completo" required>
 
-  <button type="button" class="next" onclick="next()">Começar</button>
+  <button type="button" class="next" onclick="next()">Fazer pedido</button>
 </div>
 
-<!-- CONTATO 1 -->
+<!-- STEP 2 -->
 <div class="card">
-  <div class="progress"><div class="bar"></div></div>
+  <h2>📱 Seu WhatsApp</h2>
+  <p>Vamos te chamar para confirmar o pedido.</p>
 
-  <h2>Contato 1</h2>
-  <input type="text" name="nome1" placeholder="Nome">
-  <input type="text" name="zap1" placeholder="WhatsApp">
+  <input type="text" name="whatsapp" placeholder="Seu WhatsApp" required>
 
   <button type="button" class="back" onclick="prev()">Voltar</button>
-  <button type="button" class="next" onclick="next()">Próximo</button>
+  <button type="button" class="next" onclick="next()">Continuar</button>
 </div>
 
-<!-- CONTATO 2 -->
+<!-- STEP 3 -->
 <div class="card">
-  <div class="progress"><div class="bar"></div></div>
+  <h2>📦 Pedido</h2>
+  <p>Descreva a quantidade ou tipo de pedido.</p>
 
-  <h2>Contato 2</h2>
-  <input type="text" name="nome2" placeholder="Nome">
-  <input type="text" name="zap2" placeholder="WhatsApp">
+  <input type="text" name="pedido" placeholder="Ex: 20 unidades de bala de coco recheada" required>
 
   <button type="button" class="back" onclick="prev()">Voltar</button>
-  <button type="button" class="next" onclick="next()">Próximo</button>
-</div>
-
-<!-- CONTATO 3 -->
-<div class="card">
-  <div class="progress"><div class="bar"></div></div>
-
-  <h2>Contato 3</h2>
-  <input type="text" name="nome3" placeholder="Nome">
-  <input type="text" name="zap3" placeholder="WhatsApp">
-
-  <button type="button" class="back" onclick="prev()">Voltar</button>
-  <button type="button" class="next" onclick="next()">Próximo</button>
-</div>
-
-<!-- CONTATO 4 -->
-<div class="card">
-  <div class="progress"><div class="bar"></div></div>
-
-  <h2>Contato 4</h2>
-  <input type="text" name="nome4" placeholder="Nome">
-  <input type="text" name="zap4" placeholder="WhatsApp">
-
-  <button type="button" class="back" onclick="prev()">Voltar</button>
-  <button type="button" class="next" onclick="next()">Próximo</button>
-</div>
-
-<!-- CONTATO 5 -->
-<div class="card">
-  <div class="progress"><div class="bar"></div></div>
-
-  <h2>Contato 5</h2>
-  <input type="text" name="nome5" placeholder="Nome">
-  <input type="text" name="zap5" placeholder="WhatsApp">
-
-  <button type="button" class="back" onclick="prev()">Voltar</button>
-  <button type="submit" class="submit">Enviar</button>
+  <button type="submit" class="submit">Finalizar pedido</button>
 </div>
 
 </form>
@@ -196,7 +142,6 @@ function show(i){
   cards.forEach(c => c.classList.remove("active"));
   cards[i].classList.add("active");
   current = i;
-  updateBar();
 }
 
 function next(){
@@ -205,13 +150,6 @@ function next(){
 
 function prev(){
   if(current > 0) show(current - 1);
-}
-
-function updateBar(){
-  document.querySelectorAll(".bar").forEach(()=>{
-    document.querySelectorAll(".bar")[current].style.width =
-      ((current+1)/cards.length)*100 + "%";
-  });
 }
 
 show(0);
