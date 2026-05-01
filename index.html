@@ -47,7 +47,6 @@ h2 {
 p {
   color: #555;
   font-size: 14px;
-  margin-bottom: 15px;
 }
 
 input {
@@ -66,11 +65,21 @@ button {
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
+/* BOTÃO PRÓXIMO COM FLUTUAÇÃO */
 .next {
   background: #ee0979;
   color: white;
+  animation: floatBtn 2.8s ease-in-out infinite;
+}
+
+/* animação leve */
+@keyframes floatBtn {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
 }
 
 .submit {
@@ -83,9 +92,6 @@ button {
   margin-bottom: 10px;
 }
 
-input, button {
-  touch-action: manipulation;
-}
 </style>
 </head>
 
@@ -101,7 +107,7 @@ input, button {
 <!-- STEP 1 -->
 <div class="card active">
   <h2>🍬 Bala de Coco Recheada</h2>
-  <p>Deixe seu pedido abaixo e entraremos em contato para confirmar sua encomenda.</p>
+  <p>Faça seu pedido abaixo e entraremos em contato.</p>
 
   <input type="text" name="nome" placeholder="Seu nome completo" required>
 
@@ -110,8 +116,8 @@ input, button {
 
 <!-- STEP 2 -->
 <div class="card">
-  <h2>📱 Seu WhatsApp</h2>
-  <p>Vamos te chamar para confirmar o pedido.</p>
+  <h2>📱 WhatsApp</h2>
+  <p>Vamos confirmar seu pedido por aqui.</p>
 
   <input type="text" name="whatsapp" placeholder="Seu WhatsApp" required>
 
@@ -122,9 +128,9 @@ input, button {
 <!-- STEP 3 -->
 <div class="card">
   <h2>📦 Pedido</h2>
-  <p>Descreva a quantidade ou tipo de pedido.</p>
+  <p>Informe quantidade ou tipo do pedido.</p>
 
-  <input type="text" name="pedido" placeholder="Ex: 20 unidades de bala de coco recheada" required>
+  <input type="text" name="pedido" placeholder="Ex: 20 unidades recheadas" required>
 
   <button type="button" class="back" onclick="prev()">Voltar</button>
   <button type="submit" class="submit">Finalizar pedido</button>
