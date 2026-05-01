@@ -11,10 +11,6 @@
   font-family: Arial, sans-serif;
 }
 
-  input {
-  font-size: 16px;
-}
-  
 body {
   margin: 0;
   min-height: 100vh;
@@ -23,6 +19,7 @@ body {
   align-items: center;
   background: linear-gradient(135deg,#6a11cb,#2575fc);
   padding: 15px;
+  -webkit-text-size-adjust: 100%;
 }
 
 .container {
@@ -31,7 +28,7 @@ body {
 }
 
 .card {
-  background: #FFF;
+  background: #fff;
   border-radius: 15px;
   padding: 25px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -41,10 +38,6 @@ body {
 
 .card.active {
   display: block;
-}
-
-  input, button {
-  touch-action: manipulation;
 }
 
 h2 {
@@ -72,6 +65,7 @@ input {
   margin: 8px 0 15px;
   border-radius: 8px;
   border: 1px solid #ddd;
+  font-size: 16px;
 }
 
 button {
@@ -98,6 +92,10 @@ button {
   margin-bottom: 10px;
 }
 
+input, button {
+  touch-action: manipulation;
+}
+
 @keyframes fade {
   from {opacity: 0; transform: translateY(10px);}
   to {opacity: 1; transform: translateY(0);}
@@ -121,12 +119,12 @@ method="POST">
   <div class="progress"><div class="bar"></div></div>
 
   <h2>Seu Nome</h2>
-  <input type="text" name="cliente"  placeholder="nome" required>
+  <input type="text" name="cliente" placeholder="Nome" required>
 
   <button type="button" class="next" onclick="next()">Começar</button>
 </div>
 
-<!-- CONTATOS -->
+<!-- CONTATO 1 -->
 <div class="card">
   <div class="progress"><div class="bar"></div></div>
 
@@ -138,45 +136,49 @@ method="POST">
   <button type="button" class="next" onclick="next()">Próximo</button>
 </div>
 
+<!-- CONTATO 2 -->
 <div class="card">
   <div class="progress"><div class="bar"></div></div>
 
   <h2>Contato 2</h2>
-  <input type="text" name="nome2"  placeholder="Nome">
-<input type="text" name="zap2"   placeholder="WhatsApp">
+  <input type="text" name="nome2" placeholder="Nome">
+  <input type="text" name="zap2" placeholder="WhatsApp">
 
   <button type="button" class="back" onclick="prev()">Voltar</button>
   <button type="button" class="next" onclick="next()">Próximo</button>
 </div>
 
+<!-- CONTATO 3 -->
 <div class="card">
   <div class="progress"><div class="bar"></div></div>
 
   <h2>Contato 3</h2>
   <input type="text" name="nome3" placeholder="Nome">
-  <input type="text" name="zap3"  placeholder="WhatsApp>
+  <input type="text" name="zap3" placeholder="WhatsApp">
 
   <button type="button" class="back" onclick="prev()">Voltar</button>
   <button type="button" class="next" onclick="next()">Próximo</button>
 </div>
 
+<!-- CONTATO 4 -->
 <div class="card">
   <div class="progress"><div class="bar"></div></div>
 
   <h2>Contato 4</h2>
-  <input type="text" name="nome4" placeholder="Nome>
-  <input type="text" name="zap4"  placeholder="WhatsApp>
+  <input type="text" name="nome4" placeholder="Nome">
+  <input type="text" name="zap4" placeholder="WhatsApp">
 
   <button type="button" class="back" onclick="prev()">Voltar</button>
   <button type="button" class="next" onclick="next()">Próximo</button>
 </div>
 
+<!-- CONTATO 5 -->
 <div class="card">
   <div class="progress"><div class="bar"></div></div>
 
   <h2>Contato 5</h2>
-  <input type="text" name="nome5"  placeholder="WhatsApp>
-  <input type="text" name="zap5">
+  <input type="text" name="nome5" placeholder="Nome">
+  <input type="text" name="zap5" placeholder="WhatsApp">
 
   <button type="button" class="back" onclick="prev()">Voltar</button>
   <button type="submit" class="submit">Enviar</button>
@@ -206,8 +208,9 @@ function prev(){
 }
 
 function updateBar(){
-  document.querySelectorAll(".bar").forEach((b)=>{
-    b.style.width = ((current+1)/cards.length)*100 + "%";
+  document.querySelectorAll(".bar").forEach(()=>{
+    document.querySelectorAll(".bar")[current].style.width =
+      ((current+1)/cards.length)*100 + "%";
   });
 }
 
