@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Indicações Premium</title>
 
 <style>
@@ -11,6 +11,10 @@
   font-family: Arial, sans-serif;
 }
 
+  input {
+  font-size: 16px;
+}
+  
 body {
   margin: 0;
   min-height: 100vh;
@@ -27,7 +31,7 @@ body {
 }
 
 .card {
-  background: RED;
+  background: #FFF;
   border-radius: 15px;
   padding: 25px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -37,6 +41,10 @@ body {
 
 .card.active {
   display: block;
+}
+
+  input, button {
+  touch-action: manipulation;
 }
 
 h2 {
