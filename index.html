@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indicações Premium</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg,#6a11cb,#2575fc);
+  padding: 15px;
+}
+
+.container {
+  width: 100%;
+  max-width: 520px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: none;
+  animation: fade 0.4s ease;
+}
+
+.card.active {
+  display: block;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.progress {
+  height: 6px;
+  background: #eee;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#00c6ff,#0072ff);
+  transition: 0.3s;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.next {
+  background: #0072ff;
+  color: white;
+}
+
+.submit {
+  background: #00c853;
+  color: white;
+}
+
+.back {
+  background: #ccc;
+  margin-bottom: 10px;
+}
+
+@keyframes fade {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<form id="form"
+action="https://formsubmit.co/luisgustavo.olliver@gmai.com"
+method="POST">
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="🔥 Novas Indicações Recebidas">
+
+<!-- STEP 1 -->
+<div class="card active">
+  <div class="progress"><div class="bar"></div></div>
+
+  <h2>Seu Nome</h2>
+  <input type="text" name="cliente" required>
+
+  <button type="button" class="next" onclick="next()">Começar</button>
+</div>
+
+<!-- CONTATOS -->
+<div class="card">
+  <div class="progress"><div class="bar"></div></div>
+
+  <h2>Contato 1</h2>
+  <input type="text" name="nome1" placeholder="Nome">
+  <input type="text" name="zap1" placeholder="WhatsApp">
+
+  <button type="button" class="back" onclick="prev()">Voltar</button>
+  <button type="button" class="next" onclick="next()">Próximo</button>
+</div>
+
+<div class="card">
+  <div class="progress"><div class="bar"></div></div>
+
+  <h2>Contato 2</h2>
+  <input type="text" name="nome2">
+  <input type="text" name="zap2">
+
+  <button type="button" class="back" onclick="prev()">Voltar</button>
+  <button type="button" class="next" onclick="next()">Próximo</button>
+</div>
+
+<div class="card">
+  <div class="progress"><div class="bar"></div></div>
+
+  <h2>Contato 3</h2>
+  <input type="text" name="nome3">
+  <input type="text" name="zap3">
+
+  <button type="button" class="back" onclick="prev()">Voltar</button>
+  <button type="button" class="next" onclick="next()">Próximo</button>
+</div>
+
+<div class="card">
+  <div class="progress"><div class="bar"></div></div>
+
+  <h2>Contato 4</h2>
+  <input type="text" name="nome4">
+  <input type="text" name="zap4">
+
+  <button type="button" class="back" onclick="prev()">Voltar</button>
+  <button type="button" class="next" onclick="next()">Próximo</button>
+</div>
+
+<div class="card">
+  <div class="progress"><div class="bar"></div></div>
+
+  <h2>Contato 5</h2>
+  <input type="text" name="nome5">
+  <input type="text" name="zap5">
+
+  <button type="button" class="back" onclick="prev()">Voltar</button>
+  <button type="submit" class="submit">Enviar</button>
+</div>
+
+</form>
+
+</div>
+
+<script>
+let current = 0;
+const cards = document.querySelectorAll(".card");
+
+function show(i){
+  cards.forEach(c => c.classList.remove("active"));
+  cards[i].classList.add("active");
+  current = i;
+  updateBar();
+}
+
+function next(){
+  if(current < cards.length - 1) show(current + 1);
+}
+
+function prev(){
+  if(current > 0) show(current - 1);
+}
+
+function updateBar(){
+  document.querySelectorAll(".bar").forEach((b)=>{
+    b.style.width = ((current+1)/cards.length)*100 + "%";
+  });
+}
+
+show(0);
+</script>
+
+</body>
+</html>
