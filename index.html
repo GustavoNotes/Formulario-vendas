@@ -491,7 +491,7 @@ input:hover {
   <div class="card">
     <div class="header-premium">
       <div class="icon-premium">🌟</div>
-      <h1>Programa de Indicações Premium</h1>
+      <h1>Programa de Indicações da CocoBom</h1>
       <div class="subtitle">Indique amigos e ganhe recompensas exclusivas!</div>
     </div>
 
@@ -786,7 +786,7 @@ function updateSummary() {
     }
   }
   
-  const bonus = totalIndications * 30;
+  const bonus = totalIndications * 3;
   document.getElementById('bonusEstimate').innerHTML = `R$ ${bonus.toFixed(2)}`;
   
   let summaryHtml = `
@@ -832,7 +832,7 @@ function getFormData() {
 function submitForm() {
   const data = getFormData();
   const totalIndications = data.indications.length;
-  const bonus = totalIndications * 30;
+  const bonus = totalIndications * 3;
   
   // Criar mensagem para WhatsApp
   let mensagem = `🌟 *NOVAS INDICAÇÕES - PROGRAMA PREMIUM* 🌟\n\n`;
@@ -859,7 +859,7 @@ function submitForm() {
   document.getElementById('successModal').classList.add('active');
   
   // Abrir WhatsApp
-  const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(mensagem)}`;
+  const whatsappUrl = `https://wa.me/5516992256117?text=${encodeURIComponent(mensagem)}`;
   window.open(whatsappUrl, '_blank');
   
   // Resetar formulário após 3 segundos
