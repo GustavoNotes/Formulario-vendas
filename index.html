@@ -2,504 +2,536 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>🚀 Indicações Premium - Programa de Indicações</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>🍬 Indique e Ganhe R$3</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  background-attachment: fixed;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: bgPulse 4s ease-in-out infinite;
-}
-
-@keyframes bgPulse {
-  0%, 100% { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-  50% { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-}
-
-.container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Card Principal */
-.card {
-  background: rgba(255, 255, 255, 0.98);
-  border-radius: 32px;
-  padding: 40px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-  animation: cardFloat 3s ease-in-out infinite;
-  position: relative;
-  overflow: hidden;
-	 
-}
-
-@keyframes cardFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
-  animation: gradientMove 3s ease infinite;
-  background-size: 200% 100%;
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
-}
-
-/* Header Premium */
-.header-premium {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.icon-premium {
-  font-size: 60px;
-  animation: iconShake 2s ease-in-out infinite;
-  display: inline-block;
-}
-
-@keyframes iconShake {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-10deg); }
-  75% { transform: rotate(10deg); }
-}
-
-h1 {
-  font-size: 28px;
-  color: #333;
-  margin: 15px 0 10px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.subtitle {
-  color: #666;
-  font-size: 14px;
-}
-
-/* Progresso Premium */
-.progress-container {
-  margin-bottom: 30px;
-}
-
-.progress-info {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  font-size: 14px;
-  color: #666;
-}
-
-.progress-step-text {
-  font-weight: bold;
-  color: #764ba2;
-}
-
-.progress-bar {
-  height: 8px;
-  background: #e0e0e0;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-}
-
-.progress-fill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  border-radius: 10px;
-  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.progress-fill::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-/* Steps */
-.step {
-  display: none;
-  animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.step.active {
-  display: block;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
   }
-}
 
-/* Step Indicator */
-.step-indicator {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 30px;
-}
-
-.step-dot {
-  width: 40px;
-  height: 4px;
-  background: #e0e0e0;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.step-dot.active {
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  width: 60px;
-}
-
-.step-dot.completed {
-  background: #00c853;
-}
-
-/* Input Group */
-.input-group {
-  margin-bottom: 25px;
-  position: relative;
-}
-
-label {
-  display: block;
-  margin-bottom: 8px;
-  color: #555;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-label i {
-  margin-right: 5px;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 14px 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  font-family: inherit;
-  background: white;
-}
-
-input:focus {
-  outline: none;
-  border-color: #764ba2;
-  box-shadow: 0 0 0 3px rgba(118,75,162,0.1);
-  transform: translateY(-2px);
-}
-
-input:hover {
-  border-color: #667eea;
-}
-
-/* Contact Card */
-.contact-card {
-  background: linear-gradient(135deg, #f8f9fa, #fff);
-  border-radius: 20px;
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid #e0e0e0;
-  transition: all 0.3s ease;
-  animation: contactPulse 2s ease-in-out infinite;
-}
-
-@keyframes contactPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-}
-
-.contact-card:hover {
-  border-color: #764ba2;
-  box-shadow: 0 5px 20px rgba(118,75,162,0.2);
-}
-
-.contact-number {
-  display: inline-block;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  margin-bottom: 15px;
-}
-
-/* Bonus Section */
-.bonus-section {
-  background: linear-gradient(135deg, #fff5f0, #fff);
-  border-radius: 16px;
-  padding: 20px;
-  margin-top: 20px;
-  border: 2px dashed #ff6a00;
-  animation: bonusGlow 2s ease-in-out infinite;
-}
-
-@keyframes bonusGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255,106,0,0.4); }
-  50% { box-shadow: 0 0 0 10px rgba(255,106,0,0); }
-}
-
-.bonus-title {
-  color: #ff6a00;
-  font-weight: bold;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.bonus-value {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* Buttons */
-.button-group {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.btn {
-  flex: 1;
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(102,126,234,0.4);
-}
-
-.btn-secondary {
-  background: #f0f0f0;
-  color: #666;
-}
-
-.btn-secondary:hover {
-  background: #e0e0e0;
-  transform: translateY(-2px);
-}
-
-.btn-success {
-  background: linear-gradient(135deg, #00c853, #00b34a);
-  color: white;
-}
-
-.btn-success:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(0,200,83,0.4);
-}
-
-.btn:active {
-  transform: translateY(0);
-}
-
-/* Summary Card */
-.summary-card {
-  background: linear-gradient(135deg, #f8f9fa, #fff);
-  border-radius: 20px;
-  padding: 20px;
-  margin: 20px 0;
-}
-
-.summary-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.summary-item:last-child {
-  border-bottom: none;
-}
-
-.summary-label {
-  color: #666;
-}
-
-.summary-value {
-  font-weight: bold;
-  color: #333;
-}
-
-.total-indications {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  padding: 15px;
-  border-radius: 12px;
-  text-align: center;
-  margin-top: 15px;
-}
-
-.total-number {
-  font-size: 32px;
-  font-weight: bold;
-}
-
-/* Confetti Effect */
-.confetti {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  background: #f00;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  animation: confettiFall 3s linear forwards;
-}
-
-@keyframes confettiFall {
-  to {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
+  .container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    z-index: 1;
   }
-}
 
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  z-index: 10000;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal.active {
-  display: flex;
-}
-
-.modal-content {
-  background: white;
-  border-radius: 24px;
-  padding: 30px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  animation: modalBounce 0.5s ease;
-}
-
-@keyframes modalBounce {
-  0% { transform: scale(0.8); opacity: 0; }
-  80% { transform: scale(1.05); }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-.modal-icon {
-  font-size: 60px;
-  margin-bottom: 20px;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
   .card {
-    padding: 25px;
+    background: white;
+    border-radius: 28px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    position: relative;
   }
-  
+
+  /* ============================================ */
+  /* CAIXA DESLIZANTE COM ANIMAÇÕES */
+  /* ============================================ */
+  .sliding-card {
+    position: fixed;
+    right: -320px;
+    bottom: 100px;
+    width: 280px;
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+    border-radius: 20px;
+    padding: 15px;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+    transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .sliding-card.open {
+    right: 10px;
+    animation: bounceCard 0.6s ease-in-out 2;
+  }
+
+  @keyframes bounceCard {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-8px); }
+    75% { transform: translateX(5px); }
+  }
+
+  .sliding-card.closing {
+    right: -320px;
+  }
+
+  /* HOMINHO ACENANDO */
+  .waving-man {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.15);
+    padding: 8px;
+    border-radius: 50px;
+  }
+
+  .waving-emoji {
+    font-size: 32px;
+    animation: wave 0.8s ease-in-out infinite;
+    display: inline-block;
+    transform-origin: bottom;
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(20deg); }
+    75% { transform: rotate(-15deg); }
+  }
+
+  .waving-text {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  /* Dólares saindo da caixa */
+  .dollar-particle {
+    position: absolute;
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 1001;
+    animation: floatUp 1.5s ease-out forwards;
+  }
+
+  @keyframes floatUp {
+    0% {
+      opacity: 1;
+      transform: translateY(0) rotate(0deg);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-80px) rotate(360deg);
+    }
+  }
+
+  .sliding-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .sliding-card-title {
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sliding-card-close {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+
+  .sliding-card-close:hover {
+    background: rgba(255,255,255,0.4);
+    transform: scale(1.1);
+  }
+
+  .sliding-card-content {
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .sliding-card-bonus {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .sliding-card-btn {
+    background: white;
+    color: #ff6a00;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 8px;
+    transition: all 0.3s;
+  }
+
+  .sliding-card-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  /* Header compacto */
+  .header {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #00c853, #00b34a);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .icon {
+    font-size: 40px;
+  }
+
   h1 {
-    font-size: 24px;
+    font-size: 20px;
+    color: #333;
+    margin: 5px 0;
   }
-  
+
+  .subtitle {
+    color: #666;
+    font-size: 11px;
+  }
+
+  /* Progresso compacto */
+  .progress-container {
+    margin-bottom: 15px;
+  }
+
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 11px;
+    color: #666;
+  }
+
+  .progress-bar {
+    height: 5px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 5px;
+    transition: width 0.3s;
+  }
+
+  .step {
+    display: none;
+    animation: slideIn 0.4s ease;
+  }
+
+  .step.active {
+    display: block;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .step-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 15px;
+  }
+
+  .step-dot {
+    width: 30px;
+    height: 3px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    transition: all 0.3s;
+  }
+
+  .step-dot.active {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 45px;
+  }
+
+  .step-dot.completed {
+    background: #00c853;
+  }
+
+  .input-group {
+    margin-bottom: 12px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 4px;
+    color: #555;
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #764ba2;
+    transform: scale(1.01);
+  }
+
+  .bonus-banner {
+    background: linear-gradient(135deg, #fff5f0, #fff);
+    border-radius: 14px;
+    padding: 10px;
+    margin: 12px 0;
+    border: 1px dashed #ff6a00;
+    text-align: center;
+  }
+
+  .bonus-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff6a00;
+  }
+
+  .bonus-value small {
+    font-size: 12px;
+  }
+
+  .contact-card {
+    background: #f8f9fa;
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 12px;
+    transition: all 0.3s;
+  }
+
+  .contact-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .contact-number {
+    font-size: 11px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  .summary-card {
+    background: #f8f9fa;
+    border-radius: 14px;
+    padding: 12px;
+    margin: 12px 0;
+  }
+
+  .total-indications {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .total-number {
+    font-size: 28px;
+    font-weight: bold;
+  }
+
   .button-group {
-    flex-direction: column;
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
   }
-}
 
-/* Animations */
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
-}
+  .btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
 
-.error-shake {
-  animation: shake 0.3s ease;
-  border-color: #ff4757 !important;
-}
+  .btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102,126,234,0.4);
+  }
+
+  .btn-secondary {
+    background: #f0f0f0;
+    color: #666;
+  }
+
+  .btn-secondary:hover {
+    background: #e0e0e0;
+  }
+
+  .btn-success {
+    background: linear-gradient(135deg, #00c853, #00b34a);
+    color: white;
+  }
+
+  .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,200,83,0.4);
+  }
+
+  .faq-section {
+    margin-top: 15px;
+    background: #f8f9fa;
+    border-radius: 14px;
+    padding: 10px;
+  }
+
+  .faq-title {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .faq-item {
+    margin-bottom: 6px;
+  }
+
+  .faq-question {
+    font-size: 11px;
+    font-weight: bold;
+    color: #764ba2;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 6px 0;
+  }
+
+  .faq-answer {
+    display: none;
+    font-size: 10px;
+    color: #666;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .faq-answer.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 12px;
+    z-index: 1000;
+    display: none;
+  }
+
+  .toast.show {
+    display: block;
+    animation: fadeInUp 0.3s ease;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 8px; }
+    .card { padding: 15px; }
+    h1 { font-size: 18px; }
+    .sliding-card { width: 260px; bottom: 80px; }
+    .sliding-card.open { right: 5px; }
+  }
 </style>
 </head>
 <body>
 
 <div class="container">
   <div class="card">
-    <div class="header-premium">
-      <div class="icon-premium">🌟</div>
+    <div class="header">
+      <div class="badge">💰 GANHE R$3 POR INDICAÇÃO</div>
+      <div class="icon">🎁</div>
       <h1>Programa de Indicações</h1>
-      <div class="subtitle">Indique amigos e ganhe recompensas exclusivas!</div>
+      <div class="subtitle">Indique amigos que amam bala de coco!</div>
     </div>
 
     <div class="progress-container">
       <div class="progress-info">
-        <span>Progresso</span>
-        <span class="progress-step-text" id="stepText">Passo 1 de 7</span>
+        <span>📋 Progresso</span>
+        <span class="progress-step-text" id="stepText">Passo 1 de 6</span>
       </div>
       <div class="progress-bar">
         <div class="progress-fill" id="progressFill"></div>
@@ -508,160 +540,230 @@ input:hover {
 
     <div class="step-indicator" id="stepIndicator"></div>
 
-    <form id="indicationForm" action="https://formsubmit.co/luisgustavo.olliver@gmail.com" method="POST">
-      <!-- Step 1: Dados do Cliente -->
-      <div class="step active" data-step="1">
-        <h2 style="margin-bottom: 20px;">🎯 Seus Dados</h2>
+    <!-- STEP 1 -->
+    <div class="step active" data-step="1">
+      <div class="input-group">
+        <label>👤 Seu nome</label>
+        <input type="text" id="clienteNome" placeholder="Digite seu nome">
+      </div>
+      <div class="input-group">
+        <label>📱 Seu WhatsApp</label>
+        <input type="tel" id="clienteWhatsapp" placeholder="(11) 99999-9999">
+      </div>
+      <div class="bonus-banner">
+        <span>🎁 Você ganha</span>
+        <div class="bonus-value">R$ 3,00 <small>por amigo que comprar</small></div>
+        <small>📌 Sem limite de indicações!</small>
+      </div>
+    </div>
+
+    <!-- STEP 2 a 5 -->
+    <div class="step" data-step="2">
+      <div class="contact-card">
+        <div class="contact-number">INDICAÇÃO #1</div>
         <div class="input-group">
-          <label><i>👤</i> Seu nome completo</label>
-          <input type="text" id="clienteNome" placeholder="Digite seu nome" required>
+          <label>Nome do amigo</label>
+          <input type="text" id="nome1" placeholder="Nome completo">
         </div>
         <div class="input-group">
-          <label><i>📱</i> Seu WhatsApp</label>
-          <input type="tel" id="clienteWhatsapp" placeholder="(00) 00000-0000" required>
-        </div>
-        
-        <div class="bonus-section">
-          <div class="bonus-title">
-            <span>🎁</span>
-            <span>Bônus por Indicação</span>
-          </div>
-          <div class="bonus-value">R$ 3,00 por indicação aprovada!</div>
-          <small style="color: #666;">* Bônus acumulativo, sem limite de indicações</small>
+          <label>WhatsApp do amigo</label>
+          <input type="tel" id="whatsapp1" placeholder="(11) 99999-9999">
         </div>
       </div>
+    </div>
 
-      <!-- Steps de 2 a 6: Indicações -->
-      <div class="step" data-step="2">
-        <h2 style="margin-bottom: 20px;">👥 Primeira Indicação</h2>
-        <div class="contact-card">
-          <div class="contact-number">INDICAÇÃO #1</div>
-          <div class="input-group">
-            <label>Nome do indicado</label>
-            <input type="text" id="nome1" placeholder="Nome completo">
-          </div>
-          <div class="input-group">
-            <label>WhatsApp do indicado</label>
-            <input type="tel" id="whatsapp1" placeholder="(00) 00000-0000">
-          </div>
+    <div class="step" data-step="3">
+      <div class="contact-card">
+        <div class="contact-number">INDICAÇÃO #2</div>
+        <div class="input-group">
+          <label>Nome do amigo</label>
+          <input type="text" id="nome2" placeholder="Nome completo">
+        </div>
+        <div class="input-group">
+          <label>WhatsApp do amigo</label>
+          <input type="tel" id="whatsapp2" placeholder="(11) 99999-9999">
         </div>
       </div>
+    </div>
 
-      <div class="step" data-step="3">
-        <h2 style="margin-bottom: 20px;">👥 Segunda Indicação</h2>
-        <div class="contact-card">
-          <div class="contact-number">INDICAÇÃO #2</div>
-          <div class="input-group">
-            <label>Nome do indicado</label>
-            <input type="text" id="nome2" placeholder="Nome completo">
-          </div>
-          <div class="input-group">
-            <label>WhatsApp do indicado</label>
-            <input type="tel" id="whatsapp2" placeholder="(00) 00000-0000">
-          </div>
+    <div class="step" data-step="4">
+      <div class="contact-card">
+        <div class="contact-number">INDICAÇÃO #3</div>
+        <div class="input-group">
+          <label>Nome do amigo</label>
+          <input type="text" id="nome3" placeholder="Nome completo">
+        </div>
+        <div class="input-group">
+          <label>WhatsApp do amigo</label>
+          <input type="tel" id="whatsapp3" placeholder="(11) 99999-9999">
         </div>
       </div>
+    </div>
 
-      <div class="step" data-step="4">
-        <h2 style="margin-bottom: 20px;">👥 Terceira Indicação</h2>
-        <div class="contact-card">
-          <div class="contact-number">INDICAÇÃO #3</div>
-          <div class="input-group">
-            <label>Nome do indicado</label>
-            <input type="text" id="nome3" placeholder="Nome completo">
-          </div>
-          <div class="input-group">
-            <label>WhatsApp do indicado</label>
-            <input type="tel" id="whatsapp3" placeholder="(00) 00000-0000">
-          </div>
+    <div class="step" data-step="5">
+      <div class="contact-card">
+        <div class="contact-number">INDICAÇÃO #4</div>
+        <div class="input-group">
+          <label>Nome do amigo</label>
+          <input type="text" id="nome4" placeholder="Nome completo">
+        </div>
+        <div class="input-group">
+          <label>WhatsApp do amigo</label>
+          <input type="tel" id="whatsapp4" placeholder="(11) 99999-9999">
         </div>
       </div>
+    </div>
 
-      <div class="step" data-step="5">
-        <h2 style="margin-bottom: 20px;">👥 Quarta Indicação</h2>
-        <div class="contact-card">
-          <div class="contact-number">INDICAÇÃO #4</div>
-          <div class="input-group">
-            <label>Nome do indicado</label>
-            <input type="text" id="nome4" placeholder="Nome completo">
-          </div>
-          <div class="input-group">
-            <label>WhatsApp do indicado</label>
-            <input type="tel" id="whatsapp4" placeholder="(00) 00000-0000">
-          </div>
-        </div>
+    <!-- STEP 6 -->
+    <div class="step" data-step="6">
+      <div class="summary-card" id="summaryCard"></div>
+      <div class="bonus-banner">
+        <span>💰 Seu Bônus Estimado</span>
+        <div class="bonus-value" id="bonusEstimate">R$ 0,00</div>
+        <small>* Pago após confirmação da compra</small>
       </div>
+    </div>
 
-      <div class="step" data-step="6">
-        <h2 style="margin-bottom: 20px;">👥 Quinta Indicação</h2>
-        <div class="contact-card">
-          <div class="contact-number">INDICAÇÃO #5</div>
-          <div class="input-group">
-            <label>Nome do indicado</label>
-            <input type="text" id="nome5" placeholder="Nome completo">
-          </div>
-          <div class="input-group">
-            <label>WhatsApp do indicado</label>
-            <input type="tel" id="whatsapp5" placeholder="(00) 00000-0000">
-          </div>
-        </div>
-      </div>
+    <div class="button-group">
+      <button class="btn btn-secondary" id="prevBtn" onclick="prevStep()" style="display: none;">← Voltar</button>
+      <button class="btn btn-primary" id="nextBtn" onclick="nextStep()">Próximo →</button>
+      <button class="btn btn-success" id="submitBtn" onclick="submitForm()" style="display: none;">🚀 Enviar</button>
+    </div>
 
-      <!-- Step 7: Resumo -->
-      <div class="step" data-step="7">
-        <h2 style="margin-bottom: 20px;">📋 Resumo do Programa</h2>
-        <div class="summary-card" id="summaryCard"></div>
-        <div class="bonus-section">
-          <div class="bonus-title">
-            <span>💰</span>
-            <span>Seu Bônus Estimado</span>
-          </div>
-          <div class="bonus-value" id="bonusEstimate">R$ 0,00</div>
-          <small>* Bônus pago após confirmação das indicações</small>
-        </div>
+    <div class="faq-section">
+      <div class="faq-title">❓ Dúvidas</div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">Como recebo? <span>▼</span></div>
+        <div class="faq-answer">Após seu amigo comprar, te pagamos via PIX.</div>
       </div>
-
-      <div class="button-group">
-        <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;" onclick="prevStep()">
-          ← Voltar
-        </button>
-        <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextStep()">
-          Próximo →
-        </button>
-		  <p class="ads" style="text-align:center;">Desenvolvido por: Luis Gustavo</p>
-        <button type="button" class="btn btn-success" id="submitBtn" style="display: none;" onclick="submitForm()">
-          🚀 Enviar Indicações
-        </button>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">Tem limite? <span>▼</span></div>
+        <div class="faq-answer">Não! Quanto mais amigos, mais você ganha.</div>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 
-<!-- Modal de Sucesso -->
-<div id="successModal" class="modal">
-  <div class="modal-content">
-    <div class="modal-icon">🎉</div>
-    <h2 style="color: #00c853;">Indicações Enviadas!</h2>
-    <p style="margin: 20px 0;">Agradecemos suas indicações! Entraremos em contato em breve.</p>
-    <p style="color: #666; font-size: 14px;">Bônus estimado: <strong id="modalBonus">R$ 0,00</strong></p>
-    <button class="btn btn-primary" onclick="closeModal()" style="margin-top: 20px;">Fechar</button>
+<!-- CAIXA COM HOMINHO E DÓLARES -->
+<div id="slidingCard" class="sliding-card">
+  <div class="sliding-card-header">
+    <div class="sliding-card-title">
+      <span>🎁</span>
+      <span>OPORTUNIDADE!</span>
+    </div>
+    <button class="sliding-card-close" onclick="closeSlidingCard()">✕</button>
   </div>
-
+  
+  <!-- HOMINHO ACENANDO -->
+  <div class="waving-man">
+    <span class="waving-emoji">👋</span>
+    <span class="waving-text">Venha, venha! Ganhe dinheiro!</span>
+  </div>
+  
+  <div class="sliding-card-content">
+    Indique seus amigos e ganhe
+    <div class="sliding-card-bonus">
+      💵 R$3 POR AMIGO 💵
+    </div>
+    Quanto mais indicações, mais você lucra!
+  </div>
+  <button class="sliding-card-btn" onclick="openIndicationStep()">
+    ➕ Quero indicar agora
+  </button>
 </div>
+
+<div id="toast" class="toast"></div>
 
 <script>
+const BONUS_POR_INDICACAO = 3;
 let currentStep = 1;
-const totalSteps = 7;
+const totalSteps = 6;
 
-// Elementos
 const steps = document.querySelectorAll('.step');
 const nextBtn = document.getElementById('nextBtn');
 const prevBtn = document.getElementById('prevBtn');
 const submitBtn = document.getElementById('submitBtn');
 const progressFill = document.getElementById('progressFill');
 const stepText = document.getElementById('stepText');
+const slidingCard = document.getElementById('slidingCard');
 
-// Inicializar indicadores
+// ============================================
+// DÓLARES VOANDO
+// ============================================
+function criarDolar() {
+  const card = document.querySelector('.sliding-card.open');
+  if (!card) return;
+  
+  const dollar = document.createElement('div');
+  dollar.className = 'dollar-particle';
+  dollar.innerHTML = ['💰', '💵', '💎', '🎁', '💰', '💵'][Math.floor(Math.random() * 6)];
+  dollar.style.left = card.offsetLeft + Math.random() * card.offsetWidth + 'px';
+  dollar.style.top = card.offsetTop + Math.random() * card.offsetHeight + 'px';
+  dollar.style.fontSize = (Math.random() * 15 + 18) + 'px';
+  document.body.appendChild(dollar);
+  
+  setTimeout(() => dollar.remove(), 1500);
+}
+
+function criarDolaresSequencia() {
+  for (let i = 0; i < 10; i++) {
+    setTimeout(() => criarDolar(), i * 200);
+  }
+}
+
+// ============================================
+// FUNÇÕES DA CAIXA DESLIZANTE
+// ============================================
+function openSlidingCard() {
+  slidingCard.classList.remove('closing');
+  slidingCard.classList.add('open');
+  criarDolaresSequencia();
+}
+
+function closeSlidingCard() {
+  slidingCard.classList.add('closing');
+  setTimeout(() => {
+    slidingCard.classList.remove('open');
+    slidingCard.classList.remove('closing');
+  }, 500);
+}
+
+function openIndicationStep() {
+  closeSlidingCard();
+  if (currentStep < 2) {
+    currentStep = 2;
+    updateStep();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    mostrarToast('🎯 Agora adicione seus amigos para indicar!');
+  } else if (currentStep >= 2 && currentStep <= 5) {
+    mostrarToast('👥 Preencha os dados dos seus amigos acima!');
+  } else {
+    currentStep = 2;
+    updateStep();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    mostrarToast('🎯 Agora adicione seus amigos para indicar!');
+  }
+}
+
+// Abrir automaticamente
+setTimeout(() => {
+  if (!temIndicacoes()) {
+    openSlidingCard();
+  }
+}, 5000);
+
+// ============================================
+// FUNÇÕES PRINCIPAIS
+// ============================================
+function temIndicacoes() {
+  for (let i = 1; i <= 4; i++) {
+    const nome = document.getElementById(`nome${i}`)?.value.trim();
+    const whatsapp = document.getElementById(`whatsapp${i}`)?.value.trim();
+    if (nome && whatsapp) return true;
+  }
+  return false;
+}
+
 function initStepIndicator() {
   const indicator = document.getElementById('stepIndicator');
   indicator.innerHTML = '';
@@ -674,37 +776,22 @@ function initStepIndicator() {
 }
 
 function updateStep() {
-  // Atualizar steps
   steps.forEach((step, index) => {
-    const stepNum = index + 1;
-    if (stepNum === currentStep) {
-      step.classList.add('active');
-    } else {
-      step.classList.remove('active');
-    }
+    step.classList.toggle('active', index + 1 === currentStep);
   });
   
-  // Atualizar dots
   const dots = document.querySelectorAll('.step-dot');
   dots.forEach((dot, index) => {
     const stepNum = index + 1;
-    if (stepNum < currentStep) {
-      dot.classList.add('completed');
-      dot.classList.remove('active');
-    } else if (stepNum === currentStep) {
-      dot.classList.add('active');
-      dot.classList.remove('completed');
-    } else {
-      dot.classList.remove('active', 'completed');
-    }
+    dot.classList.remove('active', 'completed');
+    if (stepNum === currentStep) dot.classList.add('active');
+    if (stepNum < currentStep) dot.classList.add('completed');
   });
   
-  // Atualizar barra de progresso
-  const progress = (currentStep / totalSteps) * 100;
+  const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
   progressFill.style.width = `${progress}%`;
   stepText.innerText = `Passo ${currentStep} de ${totalSteps}`;
   
-  // Atualizar botões
   if (currentStep === 1) {
     prevBtn.style.display = 'none';
     nextBtn.style.display = 'flex';
@@ -719,16 +806,14 @@ function updateStep() {
     nextBtn.style.display = 'flex';
     submitBtn.style.display = 'none';
   }
-  
-  // Scroll suave para o topo
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function nextStep() {
-  if (validateCurrentStep()) {
+  if (validateStep()) {
     if (currentStep < totalSteps) {
       currentStep++;
       updateStep();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 }
@@ -737,208 +822,137 @@ function prevStep() {
   if (currentStep > 1) {
     currentStep--;
     updateStep();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
 
-function validateCurrentStep() {
+function validateStep() {
   if (currentStep === 1) {
     const nome = document.getElementById('clienteNome').value.trim();
     const whatsapp = document.getElementById('clienteWhatsapp').value.trim();
-    
-    if (!nome) {
-      showError(document.getElementById('clienteNome'), 'Digite seu nome');
-      return false;
-    }
-    if (!whatsapp) {
-      showError(document.getElementById('clienteWhatsapp'), 'Digite seu WhatsApp');
-      return false;
-    }
-    if (!isValidWhatsapp(whatsapp)) {
-      showError(document.getElementById('clienteWhatsapp'), 'WhatsApp inválido. Use (11) 99999-9999');
-      return false;
-    }
+    if (!nome) { mostrarToast('Digite seu nome'); return false; }
+    if (!whatsapp) { mostrarToast('Digite seu WhatsApp'); return false; }
   }
   return true;
 }
 
-function isValidWhatsapp(phone) {
-  const phoneRegex = /^\([1-9]{2}\) [9]?[0-9]{4,5}-[0-9]{4}$/;
-  return phoneRegex.test(phone);
-}
-
-function showError(element, message) {
-  element.classList.add('error-shake');
-  alert(message);
-  setTimeout(() => {
-    element.classList.remove('error-shake');
-  }, 500);
-}
-
 function updateSummary() {
-  const summaryCard = document.getElementById('summaryCard');
-  const indications = [];
   let totalIndications = 0;
-  
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 4; i++) {
     const nome = document.getElementById(`nome${i}`).value.trim();
     const whatsapp = document.getElementById(`whatsapp${i}`).value.trim();
-    
-    if (nome && whatsapp) {
-      totalIndications++;
-      indications.push({ nome, whatsapp, num: i });
-    }
+    if (nome && whatsapp) totalIndications++;
   }
-  
-  const bonus = totalIndications * 3;
+  const bonus = totalIndications * BONUS_POR_INDICACAO;
   document.getElementById('bonusEstimate').innerHTML = `R$ ${bonus.toFixed(2)}`;
   
-  let summaryHtml = `
+  document.getElementById('summaryCard').innerHTML = `
     <div class="total-indications">
       <div>Total de Indicações</div>
       <div class="total-number">${totalIndications}</div>
+      <small>💰 Bônus: R$ ${bonus.toFixed(2)}</small>
     </div>
   `;
-  
-  if (indications.length > 0) {
-    summaryHtml += `<h3 style="margin-top: 20px;">📋 Lista de Indicações:</h3>`;
-    indications.forEach(ind => {
-      summaryHtml += `
-        <div class="summary-item">
-          <div class="summary-label">#${ind.num} - ${ind.nome}</div>
-          <div class="summary-value">${ind.whatsapp}</div>
-        </div>
-      `;
-    });
-  } else {
-    summaryHtml += `<p style="text-align: center; padding: 20px; color: #999;">Nenhuma indicação adicionada ainda</p>`;
-  }
-  
-  summaryCard.innerHTML = summaryHtml;
 }
 
 function getFormData() {
   const clienteNome = document.getElementById('clienteNome').value;
   const clienteWhatsapp = document.getElementById('clienteWhatsapp').value;
   const indications = [];
-  
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 4; i++) {
     const nome = document.getElementById(`nome${i}`).value.trim();
     const whatsapp = document.getElementById(`whatsapp${i}`).value.trim();
-    if (nome && whatsapp) {
-      indications.push({ nome, whatsapp, numero: i });
-    }
+    if (nome && whatsapp) indications.push({ nome, whatsapp, numero: i });
   }
-  
   return { clienteNome, clienteWhatsapp, indications };
 }
 
 function submitForm() {
   const data = getFormData();
   const totalIndications = data.indications.length;
-  const bonus = totalIndications * 3;
+  const bonus = totalIndications * BONUS_POR_INDICACAO;
   
-  // Criar mensagem para WhatsApp
-  let mensagem = `🌟 *NOVAS INDICAÇÕES - PROGRAMA PREMIUM* 🌟\n\n`;
-  mensagem += `*Indicador:* ${data.clienteNome}\n`;
-  mensagem += `*WhatsApp:* ${data.clienteWhatsapp}\n`;
-  mensagem += `\n📋 *Lista de Indicações (${totalIndications}):*\n`;
-  
+  let mensagem = `🍬 *NOVAS INDICAÇÕES* 🍬\n\n`;
+  mensagem += `👤 Indicador: ${data.clienteNome}\n📱 ${data.clienteWhatsapp}\n\n`;
+  mensagem += `📋 Indicações (${totalIndications}):\n`;
   data.indications.forEach((ind, idx) => {
-    mensagem += `\n${idx+1}️⃣ *${ind.nome}*\n`;
-    mensagem += `   📱 ${ind.whatsapp}\n`;
+    mensagem += `\n${idx+1}️⃣ ${ind.nome}\n   📱 ${ind.whatsapp}\n`;
   });
+  mensagem += `\n💰 Bônus: R$ ${bonus.toFixed(2)} (R$3 por indicação)`;
   
-  mensagem += `\n💰 *Bônus Estimado:* R$ ${bonus.toFixed(2)}\n`;
-  mensagem += `✨ *Total de indicações:* ${totalIndications}\n\n`;
-  mensagem += `🎯 *Enviado pelo Sistema de Indicações Premium*`;
+  window.open(`https://wa.me/5516992256117?text=${encodeURIComponent(mensagem)}`, '_blank');
   
-  // Criar confetes
-  for (let i = 0; i < 100; i++) {
-    setTimeout(() => createConfetti(), i * 20);
-  }
-  
-  // Mostrar modal de sucesso
-  document.getElementById('modalBonus').innerText = `R$ ${bonus.toFixed(2)}`;
-  document.getElementById('successModal').classList.add('active');
-  
-  // Abrir WhatsApp
-  const whatsappUrl = `https://wa.me/5516992256117?text=${encodeURIComponent(mensagem)}`;
-  window.open(whatsappUrl, '_blank');
-  
-  // Resetar formulário após 3 segundos
-  setTimeout(() => {
-    resetForm();
-  }, 5000);
-}
-
-function resetForm() {
-  document.getElementById('clienteNome').value = '';
-  document.getElementById('clienteWhatsapp').value = '';
-  
-  for (let i = 1; i <= 5; i++) {
-    document.getElementById(`nome${i}`).value = '';
-    document.getElementById(`whatsapp${i}`).value = '';
-  }
-  
-  currentStep = 1;
-  updateStep();
-}
-
-function createConfetti() {
-  const colors = ['#667eea', '#764ba2', '#f093fb', '#f5576c', '#00c853', '#ff6a00'];
-  const confetti = document.createElement('div');
-  confetti.className = 'confetti';
-  confetti.style.left = Math.random() * window.innerWidth + 'px';
-  confetti.style.top = '-10px';
-  confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-  confetti.style.width = Math.random() * 8 + 4 + 'px';
-  confetti.style.height = Math.random() * 8 + 4 + 'px';
-  confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0%';
-  document.body.appendChild(confetti);
+  criarConfetes();
+  mostrarToast(`✅ ${totalIndications} indicações enviadas!`);
   
   setTimeout(() => {
-    confetti.remove();
-  }, 3000);
+    document.getElementById('clienteNome').value = '';
+    document.getElementById('clienteWhatsapp').value = '';
+    for (let i = 1; i <= 4; i++) {
+      document.getElementById(`nome${i}`).value = '';
+      document.getElementById(`whatsapp${i}`).value = '';
+    }
+    currentStep = 1;
+    updateStep();
+  }, 2000);
 }
 
-function closeModal() {
-  document.getElementById('successModal').classList.remove('active');
+function criarConfetes() {
+  const colors = ['#667eea', '#764ba2', '#00c853', '#ff6a00'];
+  for (let i = 0; i < 80; i++) {
+    setTimeout(() => {
+      const c = document.createElement('div');
+      c.style.position = 'fixed';
+      c.style.width = Math.random() * 8 + 4 + 'px';
+      c.style.height = Math.random() * 8 + 4 + 'px';
+      c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      c.style.left = Math.random() * window.innerWidth + 'px';
+      c.style.top = '-10px';
+      c.style.borderRadius = '50%';
+      c.style.pointerEvents = 'none';
+      c.style.zIndex = '9999';
+      c.style.animation = 'fall 2s linear forwards';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 2000);
+    }, i * 15);
+  }
 }
 
-// Máscara para WhatsApp
+const styleEl = document.createElement('style');
+styleEl.textContent = `@keyframes fall { to { transform: translateY(100vh); opacity: 0; } }`;
+document.head.appendChild(styleEl);
+
+function mostrarToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+function toggleFAQ(el) {
+  const answer = el.parentElement.querySelector('.faq-answer');
+  const arrow = el.querySelector('span');
+  answer.classList.toggle('show');
+  arrow.innerHTML = answer.classList.contains('show') ? '▲' : '▼';
+}
+
 function maskWhatsapp(input) {
   let value = input.value.replace(/\D/g, '');
   if (value.length <= 11) {
-    value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
-    value = value.replace(/(\d{5})(\d)/, '$1-$2');
-    value = value.replace(/(-\d{4})\d+?$/, '$1');
+    if (value.length === 2) value = '(' + value + ')';
+    if (value.length <= 7) value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+    else value = value.replace(/^(\d{2})(\d{5})(\d)/, '($1) $2-$3').replace(/(-\d{4})\d+?$/, '$1');
   }
   input.value = value;
 }
 
-// Adicionar máscara aos campos de WhatsApp
-document.querySelectorAll('input[type="tel"]').forEach(input => {
-  input.addEventListener('input', function() {
-    maskWhatsapp(this);
+document.addEventListener('DOMContentLoaded', () => {
+  initStepIndicator();
+  updateStep();
+  document.querySelectorAll('input[type="tel"]').forEach(inp => {
+    inp.addEventListener('input', function() { maskWhatsapp(this); });
   });
 });
-
-// Inicializar
-initStepIndicator();
-updateStep();
-
-// Adicionar animações nos inputs
-document.querySelectorAll('input').forEach(input => {
-  input.addEventListener('focus', function() {
-    this.parentElement.style.transform = 'translateX(5px)';
-  });
-  input.addEventListener('blur', function() {
-    this.parentElement.style.transform = 'translateX(0)';
-  });
-});
-
 </script>
-
-
 </body>
 </html>
